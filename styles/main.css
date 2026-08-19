@@ -1,0 +1,1878 @@
+/* ==========================================================================
+   PILES RETELLING LTD — COMPLETE MULTIMILLION-DOLLAR DESIGN SYSTEM (main.css)
+   Aesthetic: Apple Pro Keynote, Linear Obsidian, Teenage Engineering Precision
+   Zero Emojis. Pure Vector Geometry, Dynamic Glow Borders, Ambient Mesh, Frosted Glass.
+   ========================================================================== */
+
+:root {
+  /* Ultra-Luxury Obsidian Dark & Pure Ceramic Palettes */
+  --bg-obsidian: #050508;
+  --bg-deep-black: #090a0f;
+  --bg-card-dark: #10121a;
+  --bg-card-dark-hover: #161824;
+  --bg-card-glass: rgba(16, 18, 26, 0.75);
+  --bg-subtle-light: #f5f5f7;
+  --bg-pure-white: #ffffff;
+  --bg-card-light: #ffffff;
+
+  /* Apple Pro Precision Accents */
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-cyan: #2997ff;
+  --apple-purple: #bf5af2;
+  --apple-green: #30d158;
+  --apple-amber: #ff9f0a;
+  --apple-rose: #ff375f;
+
+  /* Text Hierarchies */
+  --text-primary-dark: #1d1d1f;
+  --text-secondary-dark: #6e6e73;
+  --text-tertiary-dark: #86868b;
+  --text-primary-light: #f5f5f7;
+  --text-secondary-light: #a1a1a6;
+  --text-tertiary-light: #6e6e73;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Radii & Shadows */
+  --radius-pill: 980px;
+  --radius-card: 28px;
+  --radius-card-sm: 18px;
+  --radius-btn: 980px;
+  
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --shadow-glow-blue: 0 0 40px rgba(41, 151, 255, 0.25);
+  --shadow-glow-cyan: 0 0 30px rgba(41, 151, 255, 0.35);
+  
+  /* Micro Transitions */
+  --duration-fast: 180ms;
+  --duration-smooth: 320ms;
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Global Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  background-color: var(--bg-pure-white);
+  color: var(--text-primary-dark);
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.5;
+  background: var(--bg-pure-white);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 113, 227, 0.25);
+  color: inherit;
+}
+
+/* Ambient Canvas Particle Layer & Orbs */
+.ambient-aura-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#heroParticleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+}
+
+.aura-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.22;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.aura-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #0071e3 0%, rgba(41, 151, 255, 0.4) 60%, transparent 80%);
+  top: -100px;
+  left: 10%;
+  animation: floatAura1 20s infinite alternate ease-in-out;
+}
+
+.aura-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #bf5af2 0%, rgba(191, 90, 242, 0.3) 60%, transparent 80%);
+  top: 300px;
+  right: 5%;
+  animation: floatAura2 25s infinite alternate ease-in-out;
+}
+
+@keyframes floatAura1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 120px) scale(1.15); }
+}
+
+@keyframes floatAura2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-100px, 80px) scale(1.2); }
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT RIBBON
+   ========================================================================== */
+.top-ribbon {
+  background: #000000;
+  color: #ffffff;
+  font-size: 12.5px;
+  padding: 10px 16px;
+  text-align: center;
+  position: relative;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: -0.01em;
+}
+
+.top-ribbon a {
+  color: var(--apple-cyan);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.top-ribbon a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   GLOBAL FROSTED GLASS NAVIGATION (Apple Pro Style)
+   ========================================================================== */
+.global-nav-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background var(--duration-smooth) ease, border-color var(--duration-smooth) ease;
+}
+
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary-dark);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.brand-mark:hover {
+  opacity: 0.75;
+}
+
+.brand-logo-img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-dark .brand-logo-img {
+  filter: brightness(0) invert(1);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 12.5px;
+  color: var(--text-primary-dark);
+  opacity: 0.75;
+  transition: opacity var(--duration-fast) ease, color var(--duration-fast) ease;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link.nav-active {
+  opacity: 1;
+  font-weight: 600;
+  color: var(--apple-blue);
+}
+
+.nav-link.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--apple-blue);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background var(--duration-fast) ease, opacity var(--duration-fast) ease;
+  opacity: 0.8;
+}
+
+.nav-icon-btn:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  background: var(--apple-blue);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background var(--duration-fast) ease, transform var(--duration-fast) var(--ease-spring);
+}
+
+.nav-cta-pill:hover {
+  background: var(--apple-blue-hover);
+  transform: scale(1.03);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary-dark);
+}
+
+/* ==========================================================================
+   BUTTONS & TYPOGRAPHY STANDARDS (Apple Grade)
+   ========================================================================== */
+.btn-apple-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  background: var(--apple-blue);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-smooth) var(--ease-apple);
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.3);
+}
+
+.btn-apple-primary:hover {
+  background: var(--apple-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 113, 227, 0.45);
+}
+
+.btn-apple-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary-dark);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all var(--duration-smooth) var(--ease-apple);
+}
+
+.btn-apple-secondary:hover {
+  background: rgba(0, 0, 0, 0.09);
+  transform: translateY(-1px);
+}
+
+.btn-apple-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all var(--duration-smooth) var(--ease-apple);
+  backdrop-filter: blur(10px);
+}
+
+.btn-apple-dark:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.link-apple-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--apple-blue);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: gap var(--duration-fast) ease, opacity var(--duration-fast) ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.link-apple-arrow:hover {
+  gap: 9px;
+  opacity: 0.85;
+}
+
+.link-apple-arrow-light {
+  color: var(--apple-cyan);
+}
+
+.apple-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0 32px 0;
+}
+
+/* ==========================================================================
+   1. FLAGSHIP HERO (Apple Keynote Style)
+   ========================================================================== */
+.hero-showcase {
+  padding: 60px 0 80px 0;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 10%, rgba(0, 113, 227, 0.05) 0%, transparent 60%);
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.kicker-tag {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+/* Floating Brand Motion Emblem on Flagship Hero */
+.hero-floating-motion-device {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  width: 140px;
+  height: 248px;
+  background: #000000;
+  border-radius: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 113, 227, 0.2);
+  overflow: hidden;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-smooth) var(--ease-spring), box-shadow var(--duration-smooth) ease;
+  backdrop-filter: blur(12px);
+}
+
+.hero-floating-motion-device:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(41, 151, 255, 0.4);
+}
+
+.hero-motion-dynamic-island {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 9px;
+  background: #000000;
+  border-radius: 10px;
+  z-index: 6;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-motion-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-motion-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 8px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  z-index: 6;
+}
+
+/* Prominent Dual Media Grid in Branding Card */
+.branding-dual-media-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.branding-device-frame {
+  width: 140px;
+  height: 248px;
+  background: #000000;
+  border-radius: 22px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.branding-device-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.branding-device-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .hero-floating-motion-device {
+    display: none;
+  }
+  .branding-dual-media-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .branding-device-frame {
+    width: 160px;
+    height: 284px;
+    margin-bottom: 12px;
+  }
+}
+
+.hero-headline-massive {
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-primary-dark);
+  max-width: 980px;
+  margin: 0 auto 18px auto;
+}
+
+.hero-subhead {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.35;
+  color: var(--text-secondary-dark);
+  max-width: 760px;
+  margin: 0 auto 28px auto;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.hero-visual-wrapper {
+  margin: 40px auto 0 auto;
+  max-width: 1040px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  background: #000000;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-apple);
+}
+
+.hero-image-styled {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.hero-visual-wrapper:hover .hero-image-styled {
+  transform: scale(1.02);
+}
+
+/* Floating Navigation Pills Bar */
+.floating-pills-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.micro-capability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary-dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all var(--duration-smooth) var(--ease-apple);
+  box-shadow: var(--shadow-subtle);
+}
+
+.micro-capability-pill:hover {
+  background: #ffffff;
+  border-color: var(--apple-blue);
+  color: var(--apple-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.15);
+}
+
+.micro-capability-pill svg {
+  width: 15px;
+  height: 15px;
+  color: var(--apple-blue);
+}
+
+/* Animated Keynote Stats Strip */
+.keynote-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1040px;
+  margin: 56px auto 0 auto;
+  padding: 28px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-card-sm);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: var(--shadow-subtle);
+}
+
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-number-gradient {
+  background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 12.5px;
+  color: var(--text-secondary-dark);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   2. TECHNOLOGY SHOWCASE SECTION (MacBook Style)
+   ========================================================================== */
+.tech-showcase-section {
+  padding: 80px 0;
+  background: var(--bg-pure-white);
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.kicker-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  margin-bottom: 8px;
+}
+
+.tech-headline {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+
+.tech-subhead {
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.4;
+  color: var(--text-secondary-dark);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.tech-interactive-tabs {
+  display: inline-flex;
+  background: var(--bg-subtle-light);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  gap: 4px;
+  margin: 32px auto 40px auto;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary-dark);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-apple);
+}
+
+.tab-btn:hover {
+  color: var(--text-primary-dark);
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: var(--text-primary-dark);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tech-tab-content-panel {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  text-align: left;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.tech-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+}
+
+.tech-panel-info {
+  padding: 48px;
+}
+
+.tech-panel-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  margin-bottom: 12px;
+}
+
+.tech-panel-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.tech-panel-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary-dark);
+  margin-bottom: 24px;
+}
+
+.tech-feature-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.tech-feature-checklist li {
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary-dark);
+}
+
+.check-icon-svg {
+  width: 16px;
+  height: 16px;
+  color: var(--apple-blue);
+  flex-shrink: 0;
+}
+
+.tech-panel-media {
+  background: #000000;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tech-panel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   3. PILES SOUNDS SHOWCASE SECTION (Dark Studio Style)
+   ========================================================================== */
+.sounds-showcase-section {
+  padding: 80px 0;
+  background: var(--bg-obsidian);
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sounds-kicker {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-cyan);
+  margin-bottom: 8px;
+}
+
+.sounds-headline {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.72) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sounds-subhead {
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.4;
+  color: var(--text-secondary-light);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.sound-player-deck {
+  background: rgba(18, 20, 30, 0.85);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  max-width: 1040px;
+  margin: 48px auto 0 auto;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+.sound-visualizer-container {
+  padding: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.now-playing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.studio-live-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: #30d158;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #30d158;
+}
+
+.track-meta-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.track-meta-desc {
+  font-size: 13.5px;
+  color: #a1a1a6;
+  margin-top: 2px;
+}
+
+.waveform-canvas-box {
+  width: 100%;
+  height: 90px;
+  margin: 24px 0 20px 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.waveform-canvas-box canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mini-synth-keyboard-wrap {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.synth-header-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #86868b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.piano-keys-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.piano-key {
+  height: 48px;
+  background: #ffffff;
+  color: #1d1d1f;
+  border-radius: 6px;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.piano-key span {
+  font-size: 9px;
+  color: #86868b;
+  font-weight: 500;
+}
+
+.piano-key:active, .piano-key.key-active {
+  background: var(--apple-cyan);
+  color: #ffffff;
+  transform: translateY(2px);
+  box-shadow: 0 0 12px var(--apple-cyan);
+}
+
+.player-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.play-toggle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--apple-blue);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-spring), background var(--duration-fast) ease;
+}
+
+.play-toggle-btn:hover {
+  background: var(--apple-blue-hover);
+  transform: scale(1.06);
+}
+
+.play-toggle-btn svg {
+  fill: currentColor;
+}
+
+.audio-scrub-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.audio-progress {
+  width: 45%;
+  height: 100%;
+  background: var(--apple-cyan);
+  border-radius: 2px;
+}
+
+.sound-tracklist-panel {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tracklist-heading {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868b;
+  margin-bottom: 16px;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+
+.track-item:hover, .track-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.track-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.track-num {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--apple-cyan);
+  font-family: var(--font-mono);
+}
+
+.track-title-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.track-subtitle-text {
+  font-size: 11.5px;
+  color: #86868b;
+}
+
+.track-duration {
+  font-size: 12px;
+  color: #86868b;
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   4. 2x2 SHOWCASE GRID (Apple Pro Dual Layout)
+   ========================================================================== */
+.showcase-grid-section {
+  padding: 80px 0 100px 0;
+  background: var(--bg-pure-white);
+}
+
+.grid-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.showcase-card {
+  border-radius: var(--radius-card);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-smooth) var(--ease-apple), box-shadow var(--duration-smooth) ease;
+  min-height: 560px;
+}
+
+.showcase-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-dark-theme {
+  background: radial-gradient(circle at 50% 0%, #161824 0%, #090a0f 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.card-light-theme {
+  background: var(--bg-subtle-light);
+  color: var(--text-primary-dark);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-subtle);
+}
+
+.card-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  margin-bottom: 8px;
+}
+
+.card-dark-theme .card-kicker {
+  color: var(--apple-cyan);
+}
+
+.card-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.card-subtext {
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: var(--text-secondary-dark);
+  max-width: 440px;
+  margin-bottom: 20px;
+}
+
+.card-dark-theme .card-subtext {
+  color: var(--text-secondary-light);
+}
+
+.card-media-wrapper {
+  margin-top: 32px;
+  border-radius: var(--radius-card-sm);
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-media-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.showcase-card:hover .card-media-img {
+  transform: scale(1.03);
+}
+
+/* Palette Swatch Picker */
+.brand-palette-picker {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 20px 0;
+}
+
+.palette-swatch-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-spring), border-color var(--duration-fast) ease;
+}
+
+.palette-swatch-btn.active {
+  border-color: #000000;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   5. DEEP DIVE: THE 4-STEP VENTURE ENGINE & SIMULATOR
+   ========================================================================== */
+.engine-lifecycle-section {
+  padding: 90px 0;
+  background: var(--bg-obsidian);
+  color: #ffffff;
+}
+
+.engine-header {
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.engine-kicker {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--apple-cyan);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.engine-title {
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.72) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.engine-desc {
+  color: #a1a1a6;
+  font-size: 18px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.venture-simulator-deck {
+  max-width: 1040px;
+  margin: 0 auto 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.simulator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.simulator-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--apple-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.simulator-slider-wrap {
+  margin: 28px 0;
+}
+
+.timeline-range-slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: var(--apple-blue);
+  height: 6px;
+  border-radius: 3px;
+}
+
+.simulator-phase-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #86868b;
+  font-weight: 600;
+}
+
+.simulator-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.sim-metric-card {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 18px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sim-metric-title {
+  font-size: 11.5px;
+  color: #86868b;
+  text-transform: uppercase;
+}
+
+.sim-metric-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.lifecycle-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card-sm);
+  padding: 32px 24px;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--duration-smooth) var(--ease-apple), background var(--duration-smooth) ease, border-color var(--duration-smooth) ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.step-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--apple-cyan);
+  margin-bottom: 16px;
+}
+
+.step-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon-wrap svg {
+  width: 14px;
+  height: 14px;
+  color: var(--apple-cyan);
+}
+
+.step-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-body {
+  font-size: 13.5px;
+  color: #a1a1a6;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.step-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.step-tag-pill {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #86868b;
+}
+
+/* ==========================================================================
+   6. MODALS & SEARCH
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.modal-open {
+  display: flex;
+}
+
+.modal-dialog {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duration-fast) ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.modal-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--apple-blue);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   7. STRUCTURED APPLE FOOTER
+   ========================================================================== */
+.global-footer {
+  background: var(--bg-subtle-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 60px 0 40px 0;
+  font-size: 12px;
+  color: var(--text-secondary-dark);
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-footnotes {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.footer-directory {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-column-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary-dark);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.footer-column-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-column-list a {
+  color: var(--text-secondary-dark);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+.footer-column-list a:hover {
+  color: var(--text-primary-dark);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+.footer-legal-links a {
+  color: var(--text-secondary-dark);
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: var(--text-primary-dark);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (All Form Factors: Mobile, Tablet, Laptop, Desktop)
+   ========================================================================== */
+
+/* Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero-inner, .grid-container, .tech-tab-content-panel, .sound-player-deck, .venture-simulator-deck, .lifecycle-steps-grid, .footer-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Tablets (<= 900px) */
+@media (max-width: 900px) {
+  .nav-menu {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 52px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    flex-direction: column;
+    padding: 36px 28px;
+    align-items: flex-start;
+    gap: 22px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--duration-smooth) var(--ease-apple), opacity var(--duration-smooth) ease;
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .nav-menu.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 19px;
+    font-weight: 600;
+    padding: 8px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .tech-panel-grid, .sound-player-deck, .grid-container, .lifecycle-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sound-visualizer-container {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 28px 20px;
+  }
+
+  .sound-tracklist-panel {
+    padding: 28px 20px;
+  }
+
+  .tech-panel-info {
+    padding: 32px 24px;
+  }
+
+  .keynote-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .footer-directory {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .showcase-card {
+    padding: 36px 24px;
+    min-height: auto;
+  }
+}
+
+/* Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+  .hero-showcase {
+    padding: 40px 0 60px 0;
+  }
+
+  .hero-headline-massive {
+    font-size: clamp(30px, 8vw, 42px);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subhead {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .apple-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-apple-primary, .btn-apple-secondary, .btn-apple-dark {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floating-pills-bar {
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .micro-capability-pill {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .keynote-stats-strip {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+
+  .hero-floating-motion-device {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 16px auto 0 auto;
+    width: 130px;
+    height: 230px;
+  }
+
+  .branding-dual-media-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .branding-device-frame {
+    width: 140px;
+    height: 248px;
+  }
+
+  .tech-interactive-tabs {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .tech-interactive-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+    font-size: 12.5px;
+    padding: 7px 14px;
+    flex-shrink: 0;
+  }
+
+  .piano-keys-row {
+    gap: 4px;
+  }
+
+  .piano-key {
+    height: 40px;
+    font-size: 10px;
+    touch-action: manipulation;
+  }
+
+  .piano-key span {
+    display: none;
+  }
+
+  .venture-simulator-deck {
+    padding: 24px 16px;
+  }
+
+  .simulator-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footer-directory {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .modal-dialog {
+    padding: 24px 18px;
+    border-radius: 20px;
+    width: 94vw;
+  }
+}
+
+/* Small Screens & iPhone SE (<= 375px) */
+@media (max-width: 375px) {
+  .hero-inner, .grid-container, .footer-inner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-headline-massive {
+    font-size: 28px;
+  }
+
+  .card-title, .tech-headline, .sounds-headline, .engine-title {
+    font-size: 26px;
+  }
+
+  .showcase-card {
+    padding: 28px 16px;
+  }
+}
+
