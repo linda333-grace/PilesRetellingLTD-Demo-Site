@@ -323,18 +323,30 @@ function initConfigurator() {
     const message = `Hello PILES Retelling! I'm interested in building a project with you:\n\nServices: ${selectedServices.join(', ')}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nDetails: ${details}`;
 
     const encoded = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/256700000000?text=${encoded}`;
+    const emailSubject = encodeURIComponent('Project enquiry - PILES Retelling');
+    const emailUrl = `mailto:info@pilesretelling.com?subject=${emailSubject}&body=${encoded}`;
+    const whatsappUrl = `https://wa.me/256791985506?text=${encoded}`;
     
     form.innerHTML = `
       <div style="text-align: center; padding: 36px 0;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(48, 209, 88, 0.15); color: #30d158; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px auto;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
-        <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em;">Project Brief Received</h3>
-        <p style="color: #6e6e73; font-size: 15.5px; max-width: 440px; margin: 0 auto 28px auto; line-height: 1.5;">Thank you, ${name}. A PILES venture partner will review your requirements and reach out within 24 hours.</p>
-        <a href="${whatsappUrl}" target="_blank" class="btn-apple-primary" style="display: inline-flex;">Continue on WhatsApp <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg></a>
+        <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em;">Your project brief is ready</h3>
+        <p style="color: #6e6e73; font-size: 15.5px; max-width: 440px; margin: 0 auto 20px auto; line-height: 1.5;">Email it to PILES Retelling first, then continue the conversation on WhatsApp.</p>
+        <a href="${emailUrl}" id="emailProjectBrief" class="btn-apple-primary" style="display: inline-flex;">Email Project Brief</a>
+        <p style="color: #6e6e73; font-size: 13px; margin: 14px auto;">After sending the email, continue here:</p>
+        <a href="${whatsappUrl}" id="continueToWhatsapp" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1" class="btn-apple-secondary" style="display: inline-flex; opacity: 0.45; pointer-events: none;">Continue on WhatsApp <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg></a>
       </div>
     `;
+
+    document.getElementById('emailProjectBrief').addEventListener('click', () => {
+      const whatsappLink = document.getElementById('continueToWhatsapp');
+      whatsappLink.removeAttribute('aria-disabled');
+      whatsappLink.removeAttribute('tabindex');
+      whatsappLink.style.removeProperty('opacity');
+      whatsappLink.style.removeProperty('pointer-events');
+    });
   });
 }
 
