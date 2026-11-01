@@ -73,6 +73,7 @@ html {
 
 body {
   overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   line-height: 1.5;
   background: var(--bg-pure-white);
@@ -2175,8 +2176,11 @@ body {
   display: flex;
   gap: 18px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 0 max(24px, calc((100vw - 1200px) / 2)) 74px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }
