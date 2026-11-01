@@ -1295,7 +1295,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1778,11 +1778,12 @@ body {
     left: 0;
     width: 100vw;
     height: calc(100vh - 52px);
+    height: calc(100dvh - 52px);
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     flex-direction: column;
-    padding: 36px 28px;
+    padding: 36px 28px max(36px, env(safe-area-inset-bottom));
     align-items: flex-start;
     gap: 22px;
     transform: translateY(-100%);

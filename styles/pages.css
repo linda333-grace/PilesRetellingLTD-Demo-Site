@@ -88,13 +88,13 @@
 
 .pillar-grid-3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .pillar-grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -246,7 +246,7 @@
 
 .sequencer-track-row {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 140px minmax(0, 1fr);
   align-items: center;
   gap: 16px;
   margin-bottom: 14px;
@@ -262,7 +262,7 @@
 
 .sequencer-grid-steps {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -316,6 +316,10 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.calc-output-box > div {
+  min-width: 0;
+}
+
 /* ==========================================================================
    4. BRANDING: TYPOGRAPHY SPECIMEN SANDBOX
    ========================================================================== */
@@ -329,6 +333,7 @@
 }
 
 .specimen-sample-text {
+  max-width: 100%;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -336,6 +341,14 @@
   margin: 28px 0;
   transition: all 0.2s ease;
   line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.specimen-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 18px;
 }
 
 /* ==========================================================================
@@ -348,6 +361,12 @@
   max-width: 1140px;
   margin: 40px auto 0 auto;
   text-align: left;
+}
+
+.contact-phone-email-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .contact-card-box {
@@ -470,7 +489,7 @@ textarea.form-input-field {
     padding: 26px 22px;
   }
 
-  .drum-sequencer-deck, .venture-calc-deck, .academy-eval-deck, .contact-card-box, .hq-info-panel {
+  .drum-sequencer-deck, .beat-sequencer-deck, .venture-calc-deck, .typography-specimen-deck, .academy-eval-deck, .contact-card-box, .hq-info-panel {
     padding: 32px 20px;
     border-radius: 20px;
   }
@@ -492,6 +511,51 @@ textarea.form-input-field {
 
   .page-lead {
     font-size: 16px;
+  }
+
+  .beat-sequencer-deck,
+  .venture-calc-deck,
+  .typography-specimen-deck {
+    padding: 24px 16px;
+  }
+
+  .sequencer-track-row {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .sequencer-track-name {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .sequencer-grid-steps {
+    gap: 4px;
+  }
+
+  .seq-step-btn {
+    height: 36px;
+    border-radius: 6px;
+  }
+
+  .calc-output-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .calc-output-box > div:last-child {
+    text-align: left !important;
+  }
+
+  .specimen-sample-text {
+    font-size: 32px;
+  }
+
+  .contact-phone-email-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .spec-card {
@@ -544,6 +608,23 @@ textarea.form-input-field {
 
   .drum-track-row {
     grid-template-columns: 65px 1fr;
+  }
+
+  .sequencer-track-row {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .sequencer-grid-steps {
+    gap: 3px;
+  }
+
+  .seq-step-btn {
+    height: 32px;
+  }
+
+  .specimen-sample-text {
+    font-size: 26px;
   }
 }
 
