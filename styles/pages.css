@@ -231,53 +231,7 @@
 }
 
 /* ==========================================================================
-   1. TECHNOLOGY: API BENCHMARK & ARCHITECTURE TOPOLOGY
-   ========================================================================== */
-.api-benchmark-deck {
-  background: #08090e;
-  color: #ffffff;
-  border-radius: var(--radius-card);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 40px;
-  margin-top: 48px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-}
-
-.terminal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 20px;
-}
-
-.terminal-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.terminal-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.terminal-code-box {
-  background: #000000;
-  border-radius: 12px;
-  padding: 22px;
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  color: #30d158;
-  line-height: 1.65;
-  min-height: 170px;
-  overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* ==========================================================================
-   2. PILES SOUNDS: STUDIO 8-STEP BEAT SEQUENCER
+   1. PILES SOUNDS: STUDIO 8-STEP BEAT SEQUENCER
    ========================================================================== */
 .beat-sequencer-deck {
   background: rgba(14, 16, 24, 0.95);
@@ -516,7 +470,7 @@ textarea.form-input-field {
     padding: 26px 22px;
   }
 
-  .drum-sequencer-deck, .api-benchmark-deck, .venture-calc-deck, .academy-eval-deck, .contact-card-box, .hq-info-panel {
+  .drum-sequencer-deck, .venture-calc-deck, .academy-eval-deck, .contact-card-box, .hq-info-panel {
     padding: 32px 20px;
     border-radius: 20px;
   }

@@ -1,12 +1,11 @@
 /**
  * PILES RETELLING LTD — Subpage Interactive Tools & Simulators
- * Powers: Web Audio 8-Step Sequencer, Tech Benchmark & API Generator,
+ * Powers: Web Audio 8-Step Sequencer,
  * Brand Typography Sandbox, Venture Valuation Estimator, Academy Evaluator,
  * Project Configurator & FAQ Accordion.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initApiBenchmark();
   initBeatSequencer();
   initBrandTypographySandbox();
   initVentureCalculator();
@@ -14,76 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initConfigurator();
   initFaqAccordion();
 });
-
-/* ==========================================================================
-   1. TECHNOLOGY: LIVE API CODE GENERATOR & BENCHMARK
-   ========================================================================== */
-function initApiBenchmark() {
-  const langBtns = document.querySelectorAll('[data-code-lang]');
-  const codeBox = document.getElementById('apiTerminalCode');
-  const runBtn = document.getElementById('runBenchmarkBtn');
-  const latencyVal = document.getElementById('apiLatencyVal');
-
-  if (!codeBox) return;
-
-  const codeSnippets = {
-    curl: `curl -X POST https://api.pilesretelling.com/v1/ventures/dispatch \\
-  -H "Authorization: Bearer piles_live_sk_94827" \\
-  -H "Content-Type: application/json" \\
-  -d '{"fleet_id": "ug_kla_09", "task": "route_optimize", "ai_model": "piles-neural-v2"}'`,
-
-    javascript: `import { PilesVentureSDK } from '@piles/engine';
-
-const piles = new PilesVentureSDK({ apiKey: process.env.PILES_KEY });
-
-const result = await piles.logistics.optimizeRoute({
-  region: 'Kampala Metropolitan',
-  telemetryStream: true,
-  autoScaleFleet: true
-});
-console.log('Dispatch Assigned:', result.tripId);`,
-
-    python: `from piles_retelling import PilesEngine
-
-engine = PilesEngine(api_key="piles_live_sk_94827")
-deployment = engine.autonomous_systems.launch_agent(
-    model="neural-v2.1",
-    parameters={"throughput": "10k_tps", "encryption": "aes_gcm_256"}
-)
-print(f"System Online: {deployment.cluster_ip}")`,
-
-    swift: `import PilesCore
-
-let client = PilesClient(token: "piles_live_sk_94827")
-Task {
-    let status = try await client.mobility.streamTelemetry(vehicleId: "UG-KLA-44")
-    print("Telemetry 120Hz Latency: \\(status.latencyMs)ms")
-}`
-  };
-
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      langBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const lang = btn.getAttribute('data-code-lang');
-      if (codeSnippets[lang]) {
-        codeBox.textContent = codeSnippets[lang];
-      }
-    });
-  });
-
-  if (runBtn && latencyVal) {
-    runBtn.addEventListener('click', () => {
-      runBtn.textContent = 'Benchmarking...';
-      setTimeout(() => {
-        const ms = (Math.random() * 6 + 11).toFixed(1);
-        latencyVal.textContent = `${ms}ms (Sub-second global edge)`;
-        runBtn.textContent = 'Run Edge Benchmark';
-      }, 500);
-    });
-  }
-}
 
 /* ==========================================================================
    2. PILES SOUNDS: 8-STEP WEB AUDIO SEQUENCER
